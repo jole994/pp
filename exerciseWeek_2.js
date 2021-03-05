@@ -102,3 +102,58 @@ console.log(maksimalniBroj);
 
 /**Write a JavaScript program to convert temperatures to and from Celsius, Fahrenheit.
 Formula : F = (9*C/5) + 32 [ where c = temperature in Celsius and f = temperature in Fahrenheit ] */
+var c = 60;
+var f = (9*c/5) + 32;
+console.log (c, '°C is',f, '°F');
+
+/*Write a JavaScript program to get the difference between a given number and 13, if
+the number is greater than 13 return double difference between that number and 13.
+Sample Input: 11   Sample Input: 32
+Output : 2         Output : 38*/
+var number=11;
+if (number<13){
+    console.log(13-number);
+}else{
+    console.log((number-13)*2);
+};
+
+/*Write a JavaScript program to compute the sum of the two given integers. If the two
+values are same, then returns triple their sum.*/
+var a = 10;
+var b = 10
+var c = a + b;
+if (a === b){
+    console.log (3 * c);
+}
+else {
+console.log (c);
+}
+
+/*Write a JavaScript program to check two given numbers and print “true” if one of
+the number is 50 or if their sum is 50.
+Sample Input: 5,54    Sample Input: 6,50    Sample Input: 40,10
+Output : -            Output : true         Output : true         */
+ var a=400;
+ var b=10;
+ if (a===50 || b===50 || (a+b)===50) {
+     console.log("true");
+ } else {
+     console.log("-")
+ };
+
+ /*Write a JavaScript program to check a given integer is within 20 of 100 or 400,
+and print range in which number belongs.
+Sample Input: 13    Sample Input: 34        Sample Input: 256
+Output : -          Output : 20 ⇔ 100      Output : 100 ⇔ 400
+*/
+var c = 500;
+if (c > 20 && c < 100){
+    console.log ('20 ⇔ 100');
+} else if (c > 100 && c < 400){
+    console.log ('100 ⇔ 400');
+}else {
+    console.log ('-')
+};
+
+
+
