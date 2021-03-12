@@ -6,7 +6,7 @@ var string=mixedArray[3];
 console.log(string);
 
 var multiDimArr=[["a",4,6], "string neki" , [3,true,null]]
-var b=multiDimArr[[2][1]] //**da iyvucemo true vrednost */
+var b=multiDimArr[[2][1]] //**da izvucemo true vrednost */
 
 console.log(multiDimArr.length)
 var arrLength=multiDimArr.length
