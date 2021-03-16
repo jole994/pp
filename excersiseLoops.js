@@ -320,6 +320,27 @@ for(j=0; j<a.length; j++){
 console.log("\n \nfirst element larger than minimum is: " + sorted[1]);
 
 
+//2*
+var a=[-17,4,-15, 3, -2, 2, 2, -1, 6, 7];
+min=+100000000;  //+inf
+for(i=0; i<=1; i++){
+    console.log("iteration " + i )
+    min2=+1000000000;  //+inf
+    for(j=0; j<a.length; j++){
+        
+        if(min>=a[j] && i===0){
+            min=a[j];
+            var indMin=j;
+            console.log("minimum " + min + " index " + indMin)
+        }else if(min2>=a[j] && i===1 && j!==indMin){
+            a[indMin]="minimum";
+            min2=a[j];
+            console.log("min2: " + min2 )
+        }
+        // if closed
+    }//closed inner for
+}//closed for
+console.log("minimum is:" +min + " first element larger than minimum:" + min2);
 
 /**Write a program that calculates the sum of positive elements in the array.
 Input array: [3, 11, -5, -3, 2]
@@ -410,20 +431,23 @@ console.log(c)
 
 /**Write a program that deletes a given element e from the array a.
 Input: e = 2, a = [4, 6, 2, 8, 2, 2] */
+
+//with additional array
 var a = [4, 6, 2, 8, 2, 2];
-var e = 2;
-var x = [];
-var w = 0;
-for (var i = 0; i < a.length; i++) {
-	if (a[i] !== e) {			
-		x[i - w] = a[i]			
-	} else {
-		w++;  					
-	}
+var j=-1;
+delA=[];
+e=2;
+for(i=0; i<a.length; i++){
+    if(e!==a[i]){
+        j+=1;
+        delA[j]=a[i];
+    }
 }
-console.log(x);
+console.log(delA)
 
-
-
+/**Write a program that inserts a given element e on the given position p in the array a. If
+the value of the position is greater than the array length, print the error message.
+Input: e = 78, p = 3, a = [2, -2, 33, 12, 5, 8]
+Output: [2, -2, 33, 78, 12, 5, 8] */
 
 
