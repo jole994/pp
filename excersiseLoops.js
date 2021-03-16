@@ -223,6 +223,7 @@ Output: yes
 Input: e = 3, a = [5, -4.2, 18, 7]
 Output: no */
 
+//1*
 var a = [5, -4.2, 3, 7];
 var e=5;
 var check=false;
@@ -241,6 +242,21 @@ switch(check){
          console.log("e is not element of array");
          break;
 }
+
+//2*
+var e=7;
+var a=[5, -4.2, 3, 7];
+var elem=0;
+for(i=0; i<a.length; i++){
+	if(e!==a[i]){
+			if(i===a.length-1 && elem!==true){
+				console.log("nije element")
+			}
+		}else{
+		elem=true;
+		console.log("element niza");
+		} // if closed
+}// for closed
 
 
 
@@ -341,6 +357,7 @@ for(i=0; i<=1; i++){
     }//closed inner for
 }//closed for
 console.log("minimum is:" +min + " first element larger than minimum:" + min2);
+
 
 /**Write a program that calculates the sum of positive elements in the array.
 Input array: [3, 11, -5, -3, 2]
@@ -449,5 +466,22 @@ console.log(delA)
 the value of the position is greater than the array length, print the error message.
 Input: e = 78, p = 3, a = [2, -2, 33, 12, 5, 8]
 Output: [2, -2, 33, 78, 12, 5, 8] */
+var e=78;
+var p=3;
+var a=[2, -2, 33, 12, 5, 8];
+var i;
+if(p<a.length && p>=0){
+
+	for(j=a.length; j>p; j--){
+		a[j]=a[j-1];
+	}//for closed
+	
+
+}else{
+console.log("error");
+}//if cosed
+a[p]=e;
+console.log(a)
+
 
 
