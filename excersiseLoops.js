@@ -435,6 +435,7 @@ console.log(c);
 /**Write a program that concatenates two arrays.
 Input arrays: [4, 5, 6, 2], [3, 8, 11, 9]
 Output array: [4, 5, 6, 2, 3, 8, 11, 9] */
+//radi samo ako su iste duzine
 var a=[4, 5, 6, 2];
 var b=[3, 8, 11, 9];
 var c=[];
@@ -469,19 +470,17 @@ Output: [2, -2, 33, 78, 12, 5, 8] */
 var e=78;
 var p=3;
 var a=[2, -2, 33, 12, 5, 8];
-var i;
 if(p<a.length && p>=0){
 
 	for(j=a.length; j>p; j--){
 		a[j]=a[j-1];
 	}//for closed
-	
 
 }else{
 console.log("error");
 }//if cosed
 a[p]=e;
-console.log(a)
+console.log(a);
 
 
 
