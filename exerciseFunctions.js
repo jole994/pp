@@ -54,6 +54,68 @@ function aritmMean() {
 var result=aritmMean(2,4,6,8)
 console.log(result);
 
+/*5.Write a program that draws a square of a given size. For example, if the size of square
+is 5 the program should draw:*/
+
+var a=10;
+var s="";
+function square(){
+    for(i=1; i<=a; i++){            //for rows
+                                    console.log("row number: "+ i)  //check iteration
+        if(i===1 || i===a){         //if first row or last one
+            for(j=1; j<=a; j++) {   //from first to last column
+                s=s+ "*";
+            }
+            s=s+ "\n";
+        }else{                      //rows between first and last one
+            for(k=1; k<=a; k++){    //from first to last column
+                if(k===1 || k===a){ //first/last of columns
+                    s=s+"*";
+                }else{              //inside columns
+                    s=s+" ";
+                }
+            
+            }
+            s=s+"\n";               //new line
+        }
+                                    console.log("output:" + s);   // check output
+    }
+    return s;
+}
+
+console.log(square(a,s));
+
+
+
+/*6. Write a program that draws a horizontal chart representing three given values. For
+example, if values are 5, 3, and 7, the program should draw:*/
+
+var a=3;
+var b=5;
+var c=7;
+function starChartTriple (a,b,c) {
+    var horizontal="";
+
+        for (i=1; i<=a; i++){
+            horizontal+=" *"
+        }
+        horizontal=horizontal + "\n"
+                      
+        for (j=1; j<=b; j++){
+            horizontal+=" *"
+        }
+        horizontal=horizontal + "\n"
+                        
+        for (i=1; i<=c; i++){
+            horizontal=horizontal+ " *"
+        }
+        
+    return horizontal;
+}
+console.log(starChartTriple(a,b,c))
+
+
+
 //7.Write a program that calculates a number of digits of a given number.
 
 function numDig(a) {
@@ -90,8 +152,10 @@ function sumOfOddElements () {
 }
 console.log(sumOfOddElements(array))
 
-//Write a program that calculates the number of appearances of a letter a in a given string.
-//Modify the program so it calculates the number of both letters a and A.
+
+
+/*10.Write a program that calculates the number of appearances of a letter a in a given string.
+Modify the program so it calculates the number of both letters a and A.*/
 var string = 'Aleksandrija';  
 var letter1 = 'a'
 var letter2 = 'A'
@@ -108,8 +172,10 @@ function numOfAppearances () {
 }      
 console.log(numOfAppearances(string));
 
-//Write a program that concatenates a given string given number of times. For example, if
-//“abc” and 4 are given values, the program prints out abcabcabcabc.
+
+
+/*11.Write a program that concatenates a given string given number of times. For example, if
+“abc” and 4 are given values, the program prints out abcabcabcabc.*/
 var string = 'abc';
 var conc = '';
 var num = 4;

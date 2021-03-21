@@ -250,7 +250,8 @@ if(typeof(a)==="number" && typeof(b)==="number" ){
         case "/":
                 if (b===0) {
                 console.log("b is zero")
-            } break;
+                } 
+            break;
             console.log(a/b)
             break;
         case "*":
