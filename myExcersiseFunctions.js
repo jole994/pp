@@ -14,7 +14,7 @@ function triangle(){
     for (r=1; r<=n; r++){                                //for rows
         for(c=1; c<=(n*2-1); c++){                       //for columns
                                                          //console.log("r="+ r + "  c=" + c)
-            if(r===n){
+            if(r===n){                                   //bottom of triangle
                 for(b=1; b<=n; b++){
                     string=string + ". "
                 }
@@ -26,7 +26,7 @@ function triangle(){
             }else{
                 string=string + " "
             }
-                                                            //console.log(string)
+                                                        //console.log(string)
         } 
         string=string + "\n"     
         
@@ -46,7 +46,7 @@ console.log(triangle(n));
   .     5.row
 
  */
-var n=5;
+var n=11;
 var string="";
 function ROMB(){
     if(n%2!==0){
@@ -84,7 +84,7 @@ function ROMB(){
                     string=string + "\n";
             }
 
-    console.log( string);
+    //console.log( string);
     }else{
         string=string + "Please enter odd value"
     }
@@ -125,3 +125,4 @@ function X(){
     return string;
 }
 console.log(X(n));
+
