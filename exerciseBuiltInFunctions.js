@@ -7,7 +7,7 @@ d=isNaN(c);
 console.log(d);
 console.log(typeof (d));
 
-var f=isFinite(1);
+var f=isFinite(NaN);
 console.log(f);
 console.log(typeof (f));
 ///
@@ -265,6 +265,7 @@ function ordNum(num){
     return result;
 }
 console.log(ordNum(32));
+
 
 
 
