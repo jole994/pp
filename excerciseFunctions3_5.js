@@ -46,11 +46,9 @@ console.log(joinElements([NaN, 0, 15, false, -22, '', undefined, 47, null]));
 console.log("\nZadatak 3");
 function filterFalsy (arr) {
     var result = [];
-    var k = -1;
     for (var i = 0; i < arr.length; i++) {
-        if (!!arr[i]) {
-            k++;
-            result[k] = arr[i];
+        if (!!arr[i]) {         
+            result[result.length] = arr[i];
         }
     }
     return result;
@@ -140,8 +138,6 @@ console.log(perfect(30));
 
 console.log("\nZadatak 8")
 function search(string1, string2) {
-    var string1;
-    var string2;
     var string3 = ''; 
     var times = 0;
     var i=0
@@ -158,11 +154,40 @@ function search(string1, string2) {
                 i=0;
             }
         }
-    
     return times;
 }
-console.log(search('fox is brown, cat and fox are best friends', 'best friends' ));
+console.log(search('fox is brown, cat and fox are best friends fox', 'fox' ));
 
+
+//drugi nacin
+function findWord(string1, string2) {
+    var arr = [];
+    var newStr = '';
+    var times = 0;
+    for (var i = 0; i < string1.length; i++) {
+        if (string1[i] !== ' ' && i !== string1.length - 1) {
+            newStr += string1[i]
+        } else if (string1[i] === ' ' || i === string1.length - 1) {
+
+            
+            if (i !== string1.length - 1) {
+                arr[arr.length] = newStr;
+                newStr = '';
+            } else {
+                arr[arr.length] = newStr + string1[i];
+            }
+        }
+    }
+    for (var j = 0; j < arr.length; j++) {
+        if (string2 === arr[j]) {
+            times++;
+        }
+    }
+    return times;
+}
+
+var result = findWord('The fox quick brown fox', 'fox');
+console.log(result);
 
 
 /**Write a function to hide email address.
@@ -194,9 +219,9 @@ console.log(hideemail('exampleofmail@gmail.com'))
 [3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3]                  */
 console.log("\nZadatak 10")
 function mostFrequent(arr){
-    var arr;
     var mostFreq=0;
     var elem;
+    var result="";
     for(i=0; i<arr.length; i++){
         var freq=0;
         for(j=0; j<arr.length; j++){
@@ -210,7 +235,7 @@ function mostFrequent(arr){
         }
        
     }
-    return console.log("most frequent element is " + elem + ", which appears " + mostFreq + " times in array");
+    return result += "Most frequent element is " + elem + ", which appears " + mostFreq + " times in array.";
 }
 console.log(mostFrequent([3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3]));
 
@@ -337,7 +362,7 @@ console.log(sortArr([ 13, 11, 15, 5, 6, 1, 8, 12 ]));
 
 
 /**Write a program that uses a loop to add all the even numbers from 1 to 1000 and subtracts all the odd numbers 1 to 500 from the calculated sum. The result should then be multiplied by 12.5 and displayed in console.
-Output: 2350000*//
+Output: 2350000*/
 
 function calc(num) {
     var sumEven = 0;
@@ -426,6 +451,43 @@ function greatestDicisor(x, y) {
 console.log(greatestDicisor(81,9));
 
 
+/**Write a program that checks if the entered number is a prime number (i.e. divisible only
+by 1 and by itself).
+Input: 17 | 15
+Output: true | false */
+
+function primeNum(num){
+    for (i=2; i<num/2; i++){
+        if(num%i===0){
+            return false;
+        }  
+    }
+    return true;
+}
+result=primeNum(15);
+console.log(result);
+
+/**Check if a given string is a palindrome (spaces are ignored).
+Input: eye | Geek | a nut for a jar of tuna
+Output: true | false | true */
+function palindromeString(str){
+    var ignoredSpace='';
+    var isPal=true;
+    var start;
+    var end;
+    for(i=0; i<str.length; i++){
+        if(str[i] !== " "){
+            ignoredSpace += str[i];
+        }
+    }
+    for(start=0, end=ignoredSpace.length-1 ; start<end ; start++, end --){
+        if(ignoredSpace[start] !== ignoredSpace[end]){
+            return isPal=false;
+        }
+    }
+    return isPal;
+}
+console.log(palindromeString("a nut for a jar of tuna"));
 
 
 

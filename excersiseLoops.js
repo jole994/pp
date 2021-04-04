@@ -412,6 +412,17 @@ if (duzina%2===0){
     }
 }
 
+//dario
+var arr = [22, 2, 5, 55, 5, 4, 22];
+    var isSym = true;
+    var start = 0;
+    var end = arr.length -1;
+for (start = 0, end = arr.length - 1; start < end; start++, end--) {
+	if (arr[start] !== arr[end]) {
+		isSym = false;
+	}
+}
+console.log(isSym ? "symetric" : "not symetric");
 
 
 /**Write a program that intertwines two arrays. You can assume the arrays are of the same
