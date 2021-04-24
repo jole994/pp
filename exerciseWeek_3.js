@@ -208,28 +208,28 @@ switch (city) {
     case "Novi Sad":
     case "Cacak":
     case "Nis":
-        console.log("Srbija")
+        console.log("Srbija");
          break;
     case "Minhen":
     case "Berlin":
     case "Frankfurt"
-        console.log("Nemacka")
+        console.log("Nemacka");
         break;
     case "Budva":
     case "Podgorica":
     case "Herceg Novi":
     case "Petrovac":
-        console.log("Crna Gora")
+        console.log("Crna Gora");
     case "Atina":
     case "Solun":
-        console.log("Grcka")
+        console.log("Grcka");
     case "Rim":
     case "Milano":
     case "Venecija":
     case "Firenca":
-        console.log("Italija")
+        console.log("Italija");
     default:
-        console.log("Nije definisano")
+        console.log("Nije definisano");
         break;
 }
 

@@ -392,34 +392,32 @@ For example the list ["Hello", "World", "in", "a", "frame"] gets printed as:
 *********          */
 
 function rectString(arr){
-  var maxElem;
   var numC=0;
   var result="";
   for(var i=0;i<arr.length;i++){
-    if(arr[i].length>numC){
+    if(arr[i].length>numC){               //lenght of max word
       numC=arr[i].length;
-      maxElem=arr[i];
     }
   }
-  for( var r=0; r< arr.length+2; r++){
+  for( var r=0; r< arr.length+2; r++){    //r for rows
     var j=0;
-    for( var c=0; c<numC+4; c++){
-      if(r===0 || r===arr.length+1 ){
+    for( var c=0; c<numC+4; c++){         //c for columns
+      if(r===0 || r===arr.length+1 ){     //first and last row
         result+="*";
         if(c===numC+3){
           result+="\n";
         }
-      }else if(c===0 ){
+      }else if(c===0 ){                   //first column *
         result+="*";
-      }else if(c===numC+3){
-        result+="*\n"
-      }else if(c===1 || c===numC+2){
+      }else if(c===numC+3){               //last column *           
+        result+="*\n";
+      }else if(c===1 || c===numC+2){      //adding spaces close to border
         result+=" ";
       }else{
       
-          if(c<arr[r-1].length+2){
+          if(c<arr[r-1].length+2){        //adding words from array
             result+=arr[r-1][j];
-          j++;
+            j++;
           }else{
             result+=" ";
           }

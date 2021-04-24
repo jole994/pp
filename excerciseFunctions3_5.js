@@ -321,7 +321,8 @@ function grades(arrName,arrpoints){
 console.log(grades([ "Micahel", "Anne", "Frank", "Joe", "John", "David", "Mark", "Bill" ], [ 50, 39, 63, 72, 99, 51, 83, 59 ]));
 
 
-/** 4. (skip :))Sort a previously defined array. Place its sorted values into a new array whose values are equivalent to the first array's values multiplied by 2.
+/** 4. (skip :))Sort a previously defined array. Place its sorted values
+into a new array whose values are equivalent to the first array's values multiplied by 2.
 Input: [ 13, 11, 15, 5, 6, 1, 8, 12 ]
 Output: [ 2, 10, 12, 16, 22, 24, 26, 30 ]  */
 
@@ -361,7 +362,8 @@ console.log(sortArr([ 13, 11, 15, 5, 6, 1, 8, 12 ]));
 
 
 
-/**Write a program that uses a loop to add all the even numbers from 1 to 1000 and subtracts all the odd numbers 1 to 500 from the calculated sum. The result should then be multiplied by 12.5 and displayed in console.
+/**Write a program that uses a loop to add all the even numbers from 1 to 1000 and subtracts all 
+ the odd numbers 1 to 500 from the calculated sum. The result should then be multiplied by 12.5 and displayed in console.
 Output: 2350000*/
 
 function calc(num) {
@@ -416,15 +418,19 @@ function descendingOrder(arr){
  /**Write a program that displays all the combinations of two numbers between 1 and 7. Don't display two of the same numbers at the same time. Display the number of possible combinations, as well. (E.g. (1.2),(2,1) is allowed, but not (1,1), (2,2)...). */
 
  function combinatio(){
-    var pom = ''
+    var pom = '';
     for (var i = 1; i <= 7; i++){
         for (var j = 1; j <=7; j++){
-            if (i !== j){  
-                pom += '(' + i +',' + j +'), ' ;   
+            if (i !== j ){
+                if(i===7 && j===6){
+                    pom += '(' + i +',' + j +')' ; 
+                    break;  
+                }
+                    pom += '(' + i +',' + j +'), ' ;   
             }
         }
     }
-    return pom
+    return pom;
 }
 console.log(combinatio());
 
@@ -434,7 +440,7 @@ Input:  192 42 | 81 9
 Output: 6      | 9
 */
 
-function greatestDicisor(x, y) {
+function greatestDivisor(x, y) {
     if (x <= y) {
        var pom = x;
     }else{
@@ -445,10 +451,10 @@ function greatestDicisor(x, y) {
             if (x % i === 0 && y % i === 0) {
                 return i
             }
-        }
-    
+        }   
+
 }
-console.log(greatestDicisor(81,9));
+console.log(greatestDivisor(81,9));
 
 
 /**Write a program that checks if the entered number is a prime number (i.e. divisible only
