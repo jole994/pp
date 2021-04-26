@@ -278,3 +278,102 @@ var result=sortingFunc(["float", "array","hahahaha", "hoisting", "assignment", "
 console.log(result);
 
 
+
+
+/**10.Write a function that prints out the date of the next day. 
+Output:  25. 10. 2018.  */
+
+
+function nextDay(date) {
+	arrayDate=arrayOfStrings(date); 
+	arrayDate=translateStringElementsToNumber(arrayDate);
+    day=arrayDate[0];
+    month=arrayDate[1];
+    year=arrayDate[2];
+    check=wachOutForNumOfDaysInMonth(day,month,year);
+    if(check===true){
+
+        return (function finalCalc(){
+            //final calc to be continued...
+        })();
+
+    }else{
+        return check;
+    }
+}
+console.log(nextDay("78.02.2003"))
+
+
+function arrayOfStrings(string){
+	var arr=[];
+	var elem="";
+	for(var i=0; i<string.length; i++){
+		if(string[i]==="." ){
+			arr[arr.length]=elem;
+			elem="";
+		}else if(i===string.length-1){
+            elem+=string[i];
+            arr[arr.length]=elem;
+        }else{
+            elem+=string[i];
+        }
+	}
+	return arr;
+}
+
+
+function translateStringElementsToNumber(arr){
+	if(arr.length!==3){
+	return "not valid format of date, please insert format:dd.mm.yyyy";
+	}
+	if( arr[0].length!==2 && arr[1].length!==2 && arr[2].length!==4 || arr[2][0]==="0" ){
+	return "date format should be: dd.mm.yyyy";
+	}
+	if( isNaN(parseInt(arr[0][0])) || isNaN(parseInt(arr[0][1])) || isNaN(parseInt(arr[1][0])) || 
+    isNaN(parseInt(arr[1][1])) || isNaN(parseInt(arr[2][0])) || isNaN(parseInt(arr[2][1])) || 
+    isNaN(parseInt(arr[2][2])) || isNaN(parseInt(arr[2][3])) ){
+	return "programm does not accept letters"
+	}
+	if(arr[0][0]==="0"){
+		arr[0]=parseInt(arr[0][1]);
+	}else{
+        arr[0]=parseInt(arr[0]);
+    }
+	if(arr[1][0]==="0"){
+		arr[1]=parseInt(arr[1][1]);
+	}else{
+        arr[1]=parseInt(arr[1]);
+    }
+	arr[2]=parseInt(arr[2])
+	return arr;
+}
+
+
+
+function wachOutForNumOfDaysInMonth(d,m,y){
+    if(m>12){
+        return "insert month number between 1 and 12"
+    }else if( (m===1 && d>31) || (m===3 && d>31) || (m===5 && d>31) || (m===7 && d>31) || 
+    (m===8 && d>31) || (m===8 && d>31) || (m===10 && d>31) || (m===12 && d>31) ){
+        return "not valid number of days in defined month"
+    }else if(  (m===4 && d>30) || (m===6 && d>30) || (m===9 && d>30) || (m===11 && d>30) ){
+        return "not valid number of days in defined month"
+    }else{
+        //is it leap year?!
+        if( (y%4===0 && y%100!==0) || (y%4===0 && y%100===0 && y%400===0) ){
+            if(m===2 && d>29){
+                return "it's leap year!February has 29 days."
+            }
+        }else{
+            if(m===2 && d>28){
+                return "it's not a leap year!February has 28 days."
+            }
+        }
+    }
+    return true;
+}
+
+
+
+
+
