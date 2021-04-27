@@ -282,26 +282,41 @@ console.log(result);
 
 /**10.Write a function that prints out the date of the next day. 
 Output:  25. 10. 2018.  */
-
-
 function nextDay(date) {
-	arrayDate=arrayOfStrings(date); 
-	arrayDate=translateStringElementsToNumber(arrayDate);
+	var arrayDate=arrayOfStrings(date); 
+	arrayDate=translateStringElementsToNumberAndDateFormat(arrayDate);
+    if(typeof(arrayDate)!=="object"){
+        return arrayDate;
+    }
     day=arrayDate[0];
     month=arrayDate[1];
     year=arrayDate[2];
     check=wachOutForNumOfDaysInMonth(day,month,year);
     if(check===true){
 
-        return (function finalCalc(){
-            //final calc to be continued...
-        })();
+        return (function finalCalc(d,m,y){ 
+            if( (m===1 && d===31) || (m===3 && d===31) || (m===5 && d===31) || (m===7 && d===31) ||  
+            (m===8 && d===31) || (m===8 && d===31) || (m===10 && d===31) || (m===4 && d===30) || (m===6 && d===30) || (m===9 && d===30) || (m===11 && d===30)){ 
+                d=1; 
+                m+=1; 
+                return "Next day in calendar is: " + d + "." + m + "." + y +"."; 
+            }else if(m===12 && d===31){ 
+                d=1; 
+                m=1; 
+                y+=1; 
+                return "Next day in calendar is: " + d + "." + m + "." + y +"."; 
+            }else{ 
+                d+=1; 
+                return "Next day in calendar is: " + d + "." + m + "." + y +"."; 
+            } 
+        })(day,month,year); 
+            
 
     }else{
         return check;
     }
 }
-console.log(nextDay("78.02.2003"))
+console.log(nextDay("31.02.1900"))
 
 
 function arrayOfStrings(string){
@@ -322,17 +337,17 @@ function arrayOfStrings(string){
 }
 
 
-function translateStringElementsToNumber(arr){
-	if(arr.length!==3){
-	return "not valid format of date, please insert format:dd.mm.yyyy";
+function translateStringElementsToNumberAndDateFormat(arr){
+	if(arr.length!==3 || arr[0].length!==2 || arr[1].length!==2 || arr[2].length!==4){
+	    return "Not valid format of date! Please insert format:dd.mm.yyyy";
 	}
-	if( arr[0].length!==2 && arr[1].length!==2 && arr[2].length!==4 || arr[2][0]==="0" ){
-	return "date format should be: dd.mm.yyyy";
+	if( arr[2][0]==="0" ){
+	    return "Error!You have to input year between 1000 and 9999";
 	}
 	if( isNaN(parseInt(arr[0][0])) || isNaN(parseInt(arr[0][1])) || isNaN(parseInt(arr[1][0])) || 
     isNaN(parseInt(arr[1][1])) || isNaN(parseInt(arr[2][0])) || isNaN(parseInt(arr[2][1])) || 
     isNaN(parseInt(arr[2][2])) || isNaN(parseInt(arr[2][3])) ){
-	return "programm does not accept letters"
+	    return "programm does not accept characters and letters instead of numbers"
 	}
 	if(arr[0][0]==="0"){
 		arr[0]=parseInt(arr[0][1]);
@@ -352,26 +367,28 @@ function translateStringElementsToNumber(arr){
 
 function wachOutForNumOfDaysInMonth(d,m,y){
     if(m>12){
-        return "insert month number between 1 and 12"
+        return "Insert month number between 1 and 12"
     }else if( (m===1 && d>31) || (m===3 && d>31) || (m===5 && d>31) || (m===7 && d>31) || 
     (m===8 && d>31) || (m===8 && d>31) || (m===10 && d>31) || (m===12 && d>31) ){
         return "not valid number of days in defined month"
-    }else if(  (m===4 && d>30) || (m===6 && d>30) || (m===9 && d>30) || (m===11 && d>30) ){
-        return "not valid number of days in defined month"
+    }else if(  (m===4 && d>30) || (m===6 && d>30) || (m===9 && d===30) || (m===11 && d>30) ){
+        return "Not valid number of days in defined month"
     }else{
         //is it leap year?!
         if( (y%4===0 && y%100!==0) || (y%4===0 && y%100===0 && y%400===0) ){
             if(m===2 && d>29){
-                return "it's leap year!February has 29 days."
+                return "Not valid number of days in defined month!\nHint:it's leap year!February has 29 days."
             }
         }else{
             if(m===2 && d>28){
-                return "it's not a leap year!February has 28 days."
+                return "Not valid number of days in defined month!\nHint:it's not a leap year!February has 28 days."
             }
         }
     }
     return true;
 }
+
+
 
 
 
