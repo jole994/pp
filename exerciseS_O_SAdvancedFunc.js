@@ -282,6 +282,8 @@ console.log(result);
 
 /**10.Write a function that prints out the date of the next day. 
 Output:  25. 10. 2018.  */
+/**11.Write a function that prints out the date of the previous day.
+Output: 23. 10. 2018. */
 function nextDay(date) {
 	var arrayDate=arrayOfStrings(date); 
 	arrayDate=translateStringElementsToNumberAndDateFormat(arrayDate);
@@ -306,8 +308,10 @@ function nextDay(date) {
                 y+=1; 
                 return "Next day in calendar is: " + d + "." + m + "." + y +"."; 
             }else{ 
-                d+=1; 
-                return "Next day in calendar is: " + d + "." + m + "." + y +"."; 
+                var c="Next day in calendar is: " + (d+1) + "." + m + "." + y +".";
+                var a="Next day in calendar is:1.3." + y + ".";
+                var b="Next day in calendar is:1.3." + y + ".";
+                return isItFebruary(d,m,y,a,b,c);
             } 
         })(day,month,year); 
             
@@ -316,7 +320,48 @@ function nextDay(date) {
         return check;
     }
 }
-console.log(nextDay("31.02.1900"))
+console.log(nextDay("31.12.2021"))  ///insert here!
+
+
+function previousDay(date) {
+	var arrayDate=arrayOfStrings(date); 
+	arrayDate=translateStringElementsToNumberAndDateFormat(arrayDate);
+    if(typeof(arrayDate)!=="object"){
+        return arrayDate;
+    }
+    day=arrayDate[0];
+    month=arrayDate[1];
+    year=arrayDate[2];
+    check=wachOutForNumOfDaysInMonth(day,month,year);
+    if(check===true){
+
+        return (function finalCalc(d,m,y){ 
+            if( d===1 && (m===2 || m===4 || m===6 || m===8 || m===9 || m===11)  ){ 
+                d=31; 
+                m--; 
+            }else if(  d===1 && (m===5 || m===7 || m===10 || m===12)  ){ 
+                d=30; 
+                m--; 
+            }else if(d===1 && m===1){
+                d=31;
+                m=12;
+                y--;
+            }else if(d===1 && m===3){
+                var a="Previous day in calendar is:29.2." + y + ".";
+                var b="Previous day in calendar is:28.2." + y + ".";
+                return isItMarch(d,m,y,a,b);
+            }else{ 
+                d--;
+            } 
+            return "Previous day in calendar is: " + d + "." + m + "." + y +"."; 
+        })(day,month,year); 
+            
+
+    }else{
+        return check;
+    }
+}
+console.log(previousDay("31.12.2021"))  //insert here!
 
 
 function arrayOfStrings(string){
@@ -374,23 +419,57 @@ function wachOutForNumOfDaysInMonth(d,m,y){
     }else if(  (m===4 && d>30) || (m===6 && d>30) || (m===9 && d===30) || (m===11 && d>30) ){
         return "Not valid number of days in defined month"
     }else{
-        //is it leap year?!
-        if( (y%4===0 && y%100!==0) || (y%4===0 && y%100===0 && y%400===0) ){
-            if(m===2 && d>29){
-                return "Not valid number of days in defined month!\nHint:it's leap year!February has 29 days."
-            }
-        }else{
-            if(m===2 && d>28){
-                return "Not valid number of days in defined month!\nHint:it's not a leap year!February has 28 days."
-            }
-        }
+        var a="Not valid number of days in defined month!\nHint:it's leap year!February has 29 days."
+        var b="Not valid number of days in defined month!\nHint:it's not a leap year!February has 28 days."
+        var c=true;
+        return isItLeapYear(d,m,y,a,b,c);
     }
-    return true;
 }
 
 
+function isItLeapYear(d,m,y,a,b,c){
+    if( (y%4===0 && y%100!==0) || (y%4===0 && y%100===0 && y%400===0) ){
+        if(m===2 && d>29){
+            return a;
+        }
+    }else{
+        if(m===2 && d>28){
+            return b;
+        }
+    }
+    return c;
+}
+//those two are different by only one sign d>29 and d===29
+function isItFebruary(d,m,y,a,b,c){
+    if( (y%4===0 && y%100!==0) || (y%4===0 && y%100===0 && y%400===0) ){
+        if(m===2 && d===29){
+            return a;
+        }
+    }else{
+        if(m===2 && d===28){
+            return b;
+        }
+    }
+    return c;
+}
+
+function isItMarch(d,m,y,a,b){
+    if( (y%4===0 && y%100!==0) || (y%4===0 && y%100===0 && y%400===0) ){
+        if(m===3 && d===1){
+            return a;
+        }
+    }else{
+        if(m===3 && d===1){
+            return b;
+        }
+    }
+}
 
 
-
-
-
+/**12. Write a function that prints out an array of the numbers aligned from the right side.
+Input: [78, 111, 4, 4321]
+Output:
+78
+111
+4
+4321 */
