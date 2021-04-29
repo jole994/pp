@@ -473,3 +473,25 @@ Output:
 111
 4
 4321 */
+function aligningRight(arr){
+    var max="";
+    max+=arr[0];
+    max=max.length;
+    var result="";
+    for(var i=0; i<arr.length; i++){
+        arr[i]="" + arr[i];
+        if(arr[i].length>max){
+            max=arr[i].length;
+        }
+    }
+    var emptySpace="";
+    for(var i=0; i<arr.length; i++){
+        for(var j=0; j<max-arr[i].length; j++){
+            emptySpace+=" ";
+        }
+        result+=emptySpace + arr[i] + "\n";
+        emptySpace="";
+    }
+    return result;
+}
+console.log(aligningRight([45, 456, 87454, 321,45789,1,2121454,45,1]));
