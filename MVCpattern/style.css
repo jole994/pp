@@ -29,7 +29,7 @@ label,select,input{
 input[type="button"]{
     background-color: rgb(76,175,79);
 }
-#movie-error,#program-error{
+#movie-error,#program-error,#errorAddToProgram{
     color:rgb(245, 92, 92);
     font-weight: 800;
 }

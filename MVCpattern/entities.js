@@ -25,13 +25,12 @@ function Movie(ti,ge,le){
 
 
 
-function Program(date,numberOfMovies){
+function Program(date){
     if( !date ){
         throw new Error("You have to insert date");
     }
     this.date=new Date(date);
     this.listOfMovies=[];
-    this.numberOfMovies=numberOfMovies;
     this.addMovie=function(movie){
         if( !(movie instanceof Movie)  ){
             throw new Error("You have to insert movie which is instance of Movie ");
@@ -42,14 +41,12 @@ function Program(date,numberOfMovies){
         var y=this.date.getFullYear();
         var m=this.date.getMonth() + 1;
         var d=this.date.getDate  ();
-        var result= d + "." + m + "." + y + ", " + this.numberOfMovies + " movies, program duration: ";
+        var result= d + "." + m + "." + y + ", " + this.listOfMovies.length + " movies, program duration: ";
         var totalLength=0;
-        var string="";
         this.listOfMovies.forEach( function(element){
         totalLength+=parseInt(element.length);
-        string+="\t" + element.title + ", " + element.length + " " + element.genre.getData() +"\n"
         });
-        result+=totalLength +  "min" + "\n" + string;
+        result+=totalLength +  "min" ;
         return result;
     }
 }
