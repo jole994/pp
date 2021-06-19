@@ -179,10 +179,10 @@ function checkIsAllCapitals(string) {
 function checkForAnyDigits(string) {
     for (var i = 0; i < string.length; i++) {
       if (!isNaN(parseInt(string[i]))) {
-        return "String contains number";
+        return true;
       }
     }
-    return "String dont have numbers";
+    return false;
 }
 function isValidHexadecimal(string) {
     if (string[0] !=='#' || string.length !== 7 ){
@@ -192,21 +192,25 @@ function isValidHexadecimal(string) {
         if(!checking){
             return false;
         }
+        var lettersAllowed=true;
         var checking2=["A","B","C","D","E","F"];
         [...string].forEach(function(letter){
+            
             var checking3=checkForAnyDigits(letter);
             if(!checking3){
                 var checkig4=checking2.includes(letter);
-                if(!checkig4){
-                    return false;
+                if(checkig4==false){
+                    lettersAllowed=false;
                 }
             }
+
         })
 
     }
-    return true;
+                                                    
+    return lettersAllowed;
 }
-var input = "#FS5733";
+var input = "#F5733";
 // var output = checkForAnyDigits(input);
 // console.log(output);
 
@@ -265,4 +269,69 @@ var result=departureToArrival("23:59:59", "04:00:00");
 console.log(result);
 
 
+/** 10. 
+a.Write a constructor function that creates points in space. Each point in space has its own
+ x, y, and z coordinate. For example, (3, 5, 1) can be a point in space.*/
+function CreatePoint(x,y,z){
+    this.x=x.toFixed(2);
+    this.y=y.toFixed(2);
+    this.z=z.toFixed(2);
+}
+var p1=new CreatePoint(10,20,30)
+var p2=new CreatePoint(20,20,20)
+var p3=new CreatePoint(40,50,30)
+
+/**b.Write a function that calculates the distance between two points in the space. 
+ */
+function calculateDistance(T1,T2){
+    if( !(T1 instanceof CreatePoint) || !(T2 instanceof CreatePoint)  ){
+        throw new Error("not valid input");
+    }
+    var result=(T2.x-T1.x)*(T2.x-T1.x) + (T2.y-T1.y)*(T2.y-T1.y) + (T2.z-T1.z)*(T2.z-T1.z);
+    return (Math.sqrt(result)).toFixed(2);
+}
+
+var D12=calculateDistance(p1,p2);
+var D32=calculateDistance(p3,p2);
+var D13=calculateDistance(p1,p3);
+console.log(D12);
+console.log(D32);
+console.log(D13);
+
+
+
+/**11.
+Write a function that generates a random integer value between 5 and 20.*/
+function random_5_20(){
+    return (Math.random()*15+5).toFixed(0);
+}
+// console.log("random integer value between 5 and 20:")
+// console.log(random_5_20())
+
+/**Write a function that generates a random integer value between 50 and 100. */
+function random_50_100(){
+    return (Math.random()*50+50).toFixed(0);
+}
+// console.log("random integer value between 50 and 100:")
+// console.log(random_50_100())
+
+/**Write a function which expects a number and a callback generator function and
+returns an array of numbers produced by the generator function.    
+*/
+function makeArrayOfRandom(number,callBack){
+    var arr=[];
+    for(var i=0;i<number;i++){
+        arr[i]=callBack();
+    }
+    return arr;
+}
+console.log(makeArrayOfRandom(5,random_5_20));
+console.log(makeArrayOfRandom(5,random_50_100));
+
+
+/**12.
+Write a function that shuffles the elements of a given array. 
+	Input: [3, 6, 11, 2, 9, 1]
+	Output: [6, 2, 9, 1, 3, 11]  (it can be any random permutation of the given array)
+*/
 

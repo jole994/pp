@@ -1,0 +1,35 @@
+*{
+    box-sizing: border-box;
+    margin:0px;
+  /*  border:1px solid black;*/
+}
+body{
+    padding:0px 20px;
+}
+.container,form{
+    border:1px solid black;
+    padding: 13px;
+}
+.container *{
+    margin-top:7px;
+}
+h1{
+    width:100%;
+    text-align: center;
+}
+h5,p{
+    font-size: 15px;
+    font-weight: 500;
+}
+label,select,input{
+    display:inline-table;
+    height:30px;
+    width: 100%;
+}
+input[type="button"]{
+    background-color: rgb(76,175,79);
+}
+#movie-error,#program-error{
+    color:rgb(245, 92, 92);
+    font-weight: 800;
+}
