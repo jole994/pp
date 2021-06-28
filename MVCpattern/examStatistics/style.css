@@ -1,0 +1,104 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+}
+body{
+    padding:10px 50px;
+}
+header{
+    margin-top: 20px;
+    padding-top:10px;
+    height: 350px;
+    background-position:0px;
+    background-repeat: no-repeat;
+    background-image: url('https://www.heat-up.mx/wp-content/uploads/2014/10/book-table-close-up-photo-wallpaper-1680x1050.jpg');
+}
+.examStatistics{
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    margin:0px auto;
+    margin-top: 120px;
+    justify-content: center;
+}
+.examStatistics>p{
+    font-size:xx-large;
+    color: ivory;
+    width:fit-content;
+    display: block;
+    padding-left: 5px;
+}
+.passed , .failed {
+    width:400px;
+    margin:0px auto;
+    margin-top: 10px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+}
+.passed{
+    background-color: cadetblue;
+}
+.failed{
+    background-color: rgb(179, 68, 87);
+}
+.count, .percent{
+    flex-grow: 1;
+    padding-top: 8px;
+    padding-left: 5px;
+}
+.passed>div:first-child , .failed>div:first-child{
+    width:320px;
+    padding-left: 20px;
+    padding-top:7px;
+}
+.lists{
+    border-top: 1px solid cadetblue;
+    padding-top: 15px;;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 40px;
+}
+.lists>ul{
+    flex-grow: 1;
+}
+li{
+    border-right: 1px solid cadetblue;
+    padding-left: 10px;
+}
+span{
+    margin-right: 10px;
+}
+.span3{
+    float:right;
+    color: cadetblue;
+    font-weight: 700;
+}
+
+
+.insertData{
+    margin-top: 20px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height:35px;
+}
+#class{
+    width:25%;
+}
+input{
+    width: 35%;
+}
+.addButton{
+    width:20%;
+    background-color: cadetblue;
+}
+#grade{
+    width:10%;
+}
+
+ul{
+    margin:10px;
+    font-weight: 700;
+}

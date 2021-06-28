@@ -124,7 +124,7 @@ function handlerAddMovieToProgram(){
             }
         }
    }catch (err){
-       document.getElementById("errorAddToProgram").textContent=err; //ovo manjaj
+       document.getElementById("errorAddToProgram").textContent=err; 
    }
 }
 

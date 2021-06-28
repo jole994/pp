@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Students</title>
+</head>
+<body>
+
+    <header>
+
+        <div class="examStatistics">
+            <p>Exam statistics:</p>
+            <p class="month">month</p>
+        </div> 
+
+        <div class="passed">
+            <div>PASSED</div>
+            <div class="count"></div>
+            <div class="percent"></div>
+        </div>
+
+        <div class="failed">
+            <div>FAILED</div>
+            <div class="count">r</div>
+            <div class="percent">e</div>
+        </div>
+        
+    </header>
+    
+    <div class="insertData">
+    
+                <select name="class" id="class">
+                    <option value="-">-</option>
+                    <option value="js">java script</option>
+                    <option value="html">html</option>
+                    <option value="css">css</option>
+                    <option value="bootstrap">bootstrap</option>
+                    <option value="ec6">ec6</option>
+                </select>
+    
+                <input type="text">
+    
+                <select name="grade" id="grade" placeholder="grade">
+                    <option value="-">-</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+    
+                <button class="addButton">
+                        ADD
+                </button>
+    
+    </div>
+
+
+    <div class="lists">
+        <ul id="listPassed">PASSED</ul>
+        <ul id="listFailed">FAILED</ul>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>

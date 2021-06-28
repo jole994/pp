@@ -21,10 +21,6 @@ function Movie(ti,ge,le){
 }
 
 
-
-
-
-
 function Program(date){
     if( !date ){
         throw new Error("You have to insert date");
